@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Funnel Redirection - EMEA</title>
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.18.0/dist/msal-browser.min.js"></script>
+</head>
+<body>
+    <h1>Testing Funnel Redirection - EMEA</h1>
+    <div id="response"></div>
+
+    <script>
+        const msalConfig = {
+            auth: {
+                clientId: "YourEMEAClientID", // Replace with your actual client ID for EMEA
+                authority: "https://login.microsoftonline.com/YourTenantID",
+                redirectUri: "https://wi4crafts.github.io/test-app-emea", // The URI you're testing with
+            }
+        };
+
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+        msalInstance.handleRedirectPromise().then((response) => {
+            if (response) {
+                document.getElementById('response').innerHTML = `
+                    <p>Authentication successful! Here are your tokens:</p>
+                    <pre>${JSON.stringify(response, null, 2)}</pre>
+                `;
+            } else {
+                document.getElementById('response').innerHTML = '<p>No authentication response.</p>';
+            }
+        }).catch((error) => {
+            document.getElementById('response').innerHTML = `<p>Error: ${error}</p>`;
+        });
+    </script>
+</body>
+</html>
