@@ -13,8 +13,8 @@
     <script>
         const msalConfig = {
             auth: {
-                clientId: "YourEMEAClientID", // Replace with your actual client ID for EMEA
-                authority: "https://login.microsoftonline.com/YourTenantID",
+                clientId: "edbd70c6-0a7f-4eb0-a13d-0275bac8b3d4", // Replace with your actual client ID for EMEA
+                authority: "https://login.microsoftonline.com/f323b28e-bdaf-4e17-b273-b86adbbf7a67",
                 redirectUri: "https://wi4crafts.github.io/test-app-emea", // The URI you're testing with
             }
         };
@@ -32,9 +32,7 @@
             }
         }).catch((error) => {
             document.getElementById('response').innerHTML = `<p>Error: ${error}</p>`;
-        });
-
-        
+        });    
     </script>
 </body>
 </html>
